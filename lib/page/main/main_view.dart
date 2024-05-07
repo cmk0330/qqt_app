@@ -121,8 +121,8 @@ class MainPage extends StatelessWidget {
                     ),
                     onTap: () {
                       // logic.getBanner();
-                      logic.getToken();
-                      // logic.testRequest();
+                      // logic.getToken();
+                      logic.testRequest();
                     },
                   )
                 ],

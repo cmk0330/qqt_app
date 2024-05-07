@@ -36,14 +36,12 @@ class ScanLogic extends GetxController with GetSingleTickerProviderStateMixin {
     });
   }
 
-  bindVeteran(String code, String ship) {
-    netScope(() async {
-      var res = await post<Locale>(Api.POST_VETERAN_QR_BIND,
-          data: {"qrCode": code, "relationship": ship});
-      state.isSuccess.value = "success";
-      update();
-      print("-----------");
-    });
+  bindVeteran(String code, String ship) async {
+    var res = await post<Locale>(Api.POST_VETERAN_QR_BIND,
+        data: {"qrCode": code, "relationship": ship});
+    state.isSuccess.value = "success";
+    update();
+    print("-----------");
   }
 
   @override

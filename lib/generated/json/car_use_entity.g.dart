@@ -26,7 +26,7 @@ Map<String, dynamic> $CarUseEntityToJson(CarUseEntity entity) {
   return data;
 }
 
-extension CarUseEntityExt on CarUseEntity {
+extension CarUseEntityExtension on CarUseEntity {
   CarUseEntity copyWith({
     int? errno,
     CarUseData? data,
@@ -77,7 +77,7 @@ Map<String, dynamic> $CarUseDataToJson(CarUseData entity) {
   return data;
 }
 
-extension CarUseDataExt on CarUseData {
+extension CarUseDataExtension on CarUseData {
   CarUseData copyWith({
     int? total,
     int? pages,
@@ -154,7 +154,7 @@ Map<String, dynamic> $CarUseDataListToJson(CarUseDataList entity) {
   return data;
 }
 
-extension CarUseDataListExt on CarUseDataList {
+extension CarUseDataListExtension on CarUseDataList {
   CarUseDataList copyWith({
     int? id,
     int? merchId,

@@ -25,7 +25,7 @@ class BannerEntity {
 class BannerData {
 	String? id = '';
 	String? addTime = '';
-	dynamic updateTime;
+	String? updateTime = '';
 	int? type = 0;
 	String? url = '';
 	int? sort = 0;

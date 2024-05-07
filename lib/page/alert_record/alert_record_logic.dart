@@ -31,20 +31,18 @@ class AlertRecordLogic extends GetxController
   }
 
   getRecord(String? dateType, String? startTime, String? endTime) async {
-    netScope(() async {
-      var res = await get<List<dynamic>>(Api.GET_ALERT_RECORD,
-          queryParameters: {
-            "dateType": dateType,
-            "startTime": startTime,
-            "endTime": endTime
-          });
-      var list = res?.map((e) => AlertRecordEntity.fromJson(e)).toList();
-      var listTemp = <AlertRecordEntity>[];
-      listTemp.addAll(list!);
-      listTemp.addAll(list);
-      state.list = listTemp;
-      update();
-    });
+    var res = await get<List<AlertRecordEntity>>(Api.GET_ALERT_RECORD,
+        params: {
+          "dateType": dateType,
+          "startTime": startTime,
+          "endTime": endTime
+        });
+    // var list = res?.map((e) => AlertRecordEntity.fromJson(e)).toList();
+    // var listTemp = <AlertRecordEntity>[];
+    // listTemp.addAll(list!);
+    // listTemp.addAll(list);
+    state.list = res;
+    update();
   }
 
   void switchState(String text) {

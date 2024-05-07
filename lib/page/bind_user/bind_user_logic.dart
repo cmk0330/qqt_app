@@ -13,11 +13,9 @@ class BindUserLogic extends GetxController {
     getList();
   }
 
-  void getList() {
-    netScope(() async {
-      var res = await get<List<BindVeteranEntity>>(Api.GET_VETERAN_BIND_USER_LIST);
-      state.recordList = res;
-      update();
-    });
+  void getList() async {
+    var res = await get<List<BindVeteranEntity>>(Api.GET_VETERAN_BIND_USER_LIST);
+    state.recordList = res;
+    update();
   }
 }

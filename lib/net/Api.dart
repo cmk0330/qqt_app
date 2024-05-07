@@ -8,4 +8,5 @@ class Api {
   static const POST_VETERAN_QR_BIND = "wx/familialMessage/bindVeteran"; // 扫码绑定老干部段
   static const TEST = "wx/carRecord/carUnitList";
   static const TEST11 = "wx/foodTerminal/foodDiet";
+  static const WAN_AN_ZHUO = "https://www.wanandroid.com/article/list/0/json"; // 玩安卓 api
 }

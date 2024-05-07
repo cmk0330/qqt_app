@@ -37,7 +37,7 @@ Map<String, dynamic> $BindVeteranEntityToJson(BindVeteranEntity entity) {
   return data;
 }
 
-extension BindVeteranEntityExt on BindVeteranEntity {
+extension BindVeteranEntityExtension on BindVeteranEntity {
   BindVeteranEntity copyWith({
     String? avatar,
     String? familialName,

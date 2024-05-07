@@ -2,12 +2,10 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:qqt_app/entity/banner_entity.dart';
-import 'package:qqt_app/entity/car_use_entity.dart';
 import 'package:qqt_app/net/request.dart';
-import '../../entity/food_entity.dart';
+import '../../entity/car_use_entity.dart';
 import '../../entity/login_entity.dart';
 import '../../entity/refresh_token_entity.dart';
-import '../../generated/json/base/json_convert_content.dart';
 import '../../net/Api.dart';
 import '../../util/sp_util.dart';
 import 'main_state.dart';
@@ -25,12 +23,10 @@ class MainLogic extends FullLifeCycleController {
     state.currentIndex.value = index;
   }
 
-  getBanner() {
-    netScope(() async {
-      var res = await get<List<BannerData>>(Api.GET_BANNER);
-      state.bannerList.value = res!;
-      update();
-    });
+  getBanner() async {
+    var res = await get<List<BannerData>>(Api.GET_BANNER);
+    state.bannerList.value = res!;
+    update();
   }
 
   getToken() {
@@ -44,16 +40,36 @@ class MainLogic extends FullLifeCycleController {
       // print("food---->$aaa");
       // var aaa = await get<CarUseData>(Api.TEST);
       var token = await get<RefreshTokenEntity>(Api.GET_REFRESH_TOKEN,
-          queryParameters: {"refreshToken": loginData.refreshToken});
-      // var bbb = await get<CarUseData>(Api.TEST);
-      // print("token--->$bbb");
+          params: {"refreshToken": loginData.refreshToken});
+      var bbb = await get<CarUseData>(Api.TEST);
+      print("token--->$bbb");
     });
   }
 
-  testRequest() {
+  testRequest() async {
     netScope(() async {
-      var res = await get<List<BannerData>>(Api.GET_BANNER);
-      print("res--->$res");
+      var res = await get<BannerData>(Api.GET_BANNER);
+      print(res);
     });
+
+
+
+    // netScope(() async {
+    //   // var loginData = await SpUtil.getString("login_entity")
+    //   //     .then((value) => LoginData.fromJson(jsonDecode(value)));
+    //   // var token = await get<RefreshTokenEntity>(Api.GET_REFRESH_TOKEN,
+    //   //     params: {"refreshToken": loginData.refreshToken});
+    //   var res = await get<List<WanAndroidData>>(Api.WAN_AN_ZHUO);
+    //   var list = <WanAndroidDataDatas>[];
+    //   // for (var e in res) {
+    //   //   var tags = WanAndroidDataDatasTags.fromJson(e['tags']);
+    //   //   var datas = WanAndroidDataDatas.fromJson(e);
+    //   //   datas.tags.add(tags);
+    //   //   list.add(datas);
+    //   // }
+    //   print("token--->$list");
+    //   // var res = await get<List<BannerData>>(Api.GET_BANNER);
+    //   // print("res--->$res");
+    // });
   }
 }

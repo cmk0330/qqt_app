@@ -22,7 +22,7 @@ Map<String, dynamic> $RefreshTokenEntityToJson(RefreshTokenEntity entity) {
   return data;
 }
 
-extension RefreshTokenEntityExt on RefreshTokenEntity {
+extension RefreshTokenEntityExtension on RefreshTokenEntity {
   RefreshTokenEntity copyWith({
     String? refreshToken,
     String? token,

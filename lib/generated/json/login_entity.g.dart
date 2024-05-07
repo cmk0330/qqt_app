@@ -26,7 +26,7 @@ Map<String, dynamic> $LoginEntityToJson(LoginEntity entity) {
   return data;
 }
 
-extension LoginEntityExt on LoginEntity {
+extension LoginEntityExtension on LoginEntity {
   LoginEntity copyWith({
     int? errno,
     String? errmsg,
@@ -65,7 +65,7 @@ Map<String, dynamic> $LoginDataToJson(LoginData entity) {
   return data;
 }
 
-extension LoginDataExt on LoginData {
+extension LoginDataExtension on LoginData {
   LoginData copyWith({
     String? phone,
     String? token,

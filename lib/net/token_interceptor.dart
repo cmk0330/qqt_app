@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:dio/dio.dart' as dio;
 import 'package:dio/dio.dart';
@@ -31,9 +30,9 @@ class TokenInterceptor extends Interceptor {
       var loginData = await SpUtil.getString("login_entity")
           .then((value) => LoginData.fromJson(jsonDecode(value)));
       var tokenEntity = await get<RefreshTokenEntity>(Api.GET_REFRESH_TOKEN,
-          queryParameters: {"refreshToken": loginData.refreshToken});
-      loginData.token = tokenEntity?.token;
-      loginData.refreshToken = tokenEntity?.refreshToken;
+          params: {"refreshToken": loginData.refreshToken});
+      loginData.token = tokenEntity?.token.toString();
+      loginData.refreshToken = tokenEntity?.refreshToken.toString();
 
       SpUtil.setString("login_entity", jsonEncode(loginData));
       err.requestOptions.headers["token"] = loginData.token;

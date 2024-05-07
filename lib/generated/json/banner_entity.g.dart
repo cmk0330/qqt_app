@@ -27,7 +27,7 @@ Map<String, dynamic> $BannerEntityToJson(BannerEntity entity) {
   return data;
 }
 
-extension BannerEntityExt on BannerEntity {
+extension BannerEntityExtension on BannerEntity {
   BannerEntity copyWith({
     int? errno,
     String? errmsg,
@@ -50,7 +50,7 @@ BannerData $BannerDataFromJson(Map<String, dynamic> json) {
   if (addTime != null) {
     bannerData.addTime = addTime;
   }
-  final dynamic updateTime = json['updateTime'];
+  final String? updateTime = jsonConvert.convert<String>(json['updateTime']);
   if (updateTime != null) {
     bannerData.updateTime = updateTime;
   }
@@ -85,11 +85,11 @@ Map<String, dynamic> $BannerDataToJson(BannerData entity) {
   return data;
 }
 
-extension BannerDataExt on BannerData {
+extension BannerDataExtension on BannerData {
   BannerData copyWith({
     String? id,
     String? addTime,
-    dynamic updateTime,
+    String? updateTime,
     int? type,
     String? url,
     int? sort,

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:get/get.dart';
 import 'package:qqt_app/net/request.dart';
@@ -26,20 +27,16 @@ class LoginLogic extends GetxController {
   }
 
   /// 获取验证码
-  void getVerifyCode(String phone) {
-    netScope(() async {
-      final res = await get<dynamic>(Api.GET_VERIFICATION_CODE,
-          queryParameters: {"phone": phone});
-    });
+  void getVerifyCode(String phone) async {
+    final res =
+        await get<dynamic>(Api.GET_VERIFICATION_CODE, params: {"phone": phone});
   }
 
-  login(String phone, String code) {
-    netScope(() async {
-      var res = await post<LoginData>(Api.POST_LOGIN,
-          data: {"phone": phone, "code": code});
-      SpUtil.setString("login_entity", jsonEncode(res));
-      Get.offNamed(RouteGet.main);
-    });
+  login(String phone, String code) async {
+    var res = await post<LoginData>(Api.POST_LOGIN,
+        data: {"phone": phone, "code": code});
+    SpUtil.setString("login_entity", jsonEncode(res));
+    Get.offNamed(RouteGet.main);
   }
 
   @override

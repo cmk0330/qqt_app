@@ -27,7 +27,7 @@ Map<String, dynamic> $FoodEntityToJson(FoodEntity entity) {
   return data;
 }
 
-extension FoodEntityExt on FoodEntity {
+extension FoodEntityExtension on FoodEntity {
   FoodEntity copyWith({
     int? errno,
     String? errmsg,
@@ -78,7 +78,7 @@ Map<String, dynamic> $FoodDataToJson(FoodData entity) {
   return data;
 }
 
-extension FoodDataExt on FoodData {
+extension FoodDataExtension on FoodData {
   FoodData copyWith({
     String? date,
     int? weekDay,
@@ -124,7 +124,7 @@ Map<String, dynamic> $FoodDataBreakfastToJson(FoodDataBreakfast entity) {
   return data;
 }
 
-extension FoodDataBreakfastExt on FoodDataBreakfast {
+extension FoodDataBreakfastExtension on FoodDataBreakfast {
   FoodDataBreakfast copyWith({
     String? time,
     List<FoodDataBreakfastFoods>? foods,
@@ -179,7 +179,7 @@ Map<String, dynamic> $FoodDataBreakfastFoodsToJson(
   return data;
 }
 
-extension FoodDataBreakfastFoodsExt on FoodDataBreakfastFoods {
+extension FoodDataBreakfastFoodsExtension on FoodDataBreakfastFoods {
   FoodDataBreakfastFoods copyWith({
     int? foodId,
     String? foodName,
@@ -227,7 +227,7 @@ Map<String, dynamic> $FoodDataLunchToJson(FoodDataLunch entity) {
   return data;
 }
 
-extension FoodDataLunchExt on FoodDataLunch {
+extension FoodDataLunchExtension on FoodDataLunch {
   FoodDataLunch copyWith({
     String? time,
     List<FoodDataLunchFoods>? foods,
@@ -280,7 +280,7 @@ Map<String, dynamic> $FoodDataLunchFoodsToJson(FoodDataLunchFoods entity) {
   return data;
 }
 
-extension FoodDataLunchFoodsExt on FoodDataLunchFoods {
+extension FoodDataLunchFoodsExtension on FoodDataLunchFoods {
   FoodDataLunchFoods copyWith({
     int? foodId,
     String? foodName,
@@ -328,7 +328,7 @@ Map<String, dynamic> $FoodDataDinnerToJson(FoodDataDinner entity) {
   return data;
 }
 
-extension FoodDataDinnerExt on FoodDataDinner {
+extension FoodDataDinnerExtension on FoodDataDinner {
   FoodDataDinner copyWith({
     String? time,
     List<FoodDataDinnerFoods>? foods,
@@ -381,7 +381,7 @@ Map<String, dynamic> $FoodDataDinnerFoodsToJson(FoodDataDinnerFoods entity) {
   return data;
 }
 
-extension FoodDataDinnerFoodsExt on FoodDataDinnerFoods {
+extension FoodDataDinnerFoodsExtension on FoodDataDinnerFoods {
   FoodDataDinnerFoods copyWith({
     int? foodId,
     String? foodName,

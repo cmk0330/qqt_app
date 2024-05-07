@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:qqt_app/net/net_config.dart';
+import 'package:qqt_app/net/request.dart';
 import 'package:qqt_app/net/response_convert.dart';
 import 'package:qqt_app/routers/routers.dart';
 
@@ -18,10 +19,10 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    netScope1((){});
     _initNet();
     _initLoading();
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(

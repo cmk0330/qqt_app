@@ -26,7 +26,7 @@ Map<String, dynamic> $AlertRecordEntityToJson(AlertRecordEntity entity) {
   return data;
 }
 
-extension AlertRecordEntityExt on AlertRecordEntity {
+extension AlertRecordEntityExtension on AlertRecordEntity {
   AlertRecordEntity copyWith({
     String? addTime,
     String? messageName,
